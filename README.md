@@ -8,19 +8,46 @@ This project aims to control the onboard LEDs of an STM32 board based on the rol
 The project utilizes serial communication between the Jetson Nano and the STM32 board to exchange data and commands. The Python script requests gyro data from the STM32 board, processes it to determine roll and pitch angles, and sends LED control commands back to the STM32 board. The STM32 firmware receives these commands and sets the appropriate LEDs.
 
 ### Block Diagram:
+Apologies for the confusion. Here's a block diagram illustrating the software components of the project using VS Code:
+
 ```
-                    +-----------------+
-                    |   Jetson Nano   |
-                    | Python Script   |
-                    +-----------------+
-                            |
-                            | Serial
-                            |
-                    +-----------------+
-                    |   STM32 Board   |
-                    |     Firmware    |
-                    +-----------------+
+          +---------------------------------------------------------+
+          |                      Jetson Nano                        |
+          |                    Python Environment                  |
+          +---------------------------------------------------------+
+                                   |
+                      +-------------------------------------+
+                      |             python_script.py         |
+                      +-------------------------------------+
+                                   |
+                      +-------------------------------------+
+                      |             PySerial Library        |
+                      +-------------------------------------+
+                                   |
+                      +-------------------------------------+
+                      |         USB Serial Interface        |
+                      |              (UART)                 |
+                      +-------------------------------------+
+                                   |
+                      +-------------------------------------+
+                      |          STM32 Board (Firmware)     |
+                      |          C/C++ Development          |
+                      +-------------------------------------+
+                                   |
+                      +-------------------------------------+
+                      |         USB Serial Interface        |
+                      |              (UART)                 |
+                      +-------------------------------------+
 ```
+
+In this diagram:
+
+- The Jetson Nano runs a Python environment where the `python_script.py` is executed.
+- The Python script utilizes the PySerial library to establish communication with the STM32 board over a USB serial interface (UART).
+- The STM32 board runs firmware developed in C/C++.
+- The firmware interfaces with the USB serial interface (UART) to communicate with the Python script.
+
+This diagram illustrates the flow of data and commands between the software components of the project.
 
 ## Instructions
 To run the code:
