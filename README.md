@@ -86,9 +86,9 @@ Troubleshooting
 - Online Noise Measurement: The script measures noise levels in gyroscope data and provides real-time visualization for analysis.
 ## Dependencies
 -Python 3.x
-    NumPy
-    Matplotlib
-    PySerial
+-NumPy
+-Matplotlib
+-PySerial
 
 ## Table of Contents
 1. `python_script.py`: Python script running on the Jetson Nano to process gyro data and control LEDs.
